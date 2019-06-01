@@ -2,8 +2,11 @@
   "manifest_version": 2,
   "name": "NextComic",
   "version": "0.1",
-
-  "description": "Allows arrow key control for comic viewing",
+  "developer": {
+    "name": "bytesized",
+    "url": "https://github.com/bytesized/NextComic"
+  },
+  "description": "Allows arrow key control for webcomic viewing",
 
   "icons": {
     "48": "icon.svg",
