@@ -5,7 +5,8 @@
            V 48
            H 0
            Z
-           " fill="none"/>
+           "
+        fill="none"/>
   <!-- Top-Left Panel -->
   <path d="M 2 10
            L 6 2
@@ -13,7 +14,8 @@
            V 20.125
            L 2 17
            Z
-           " stroke="black" stroke-width="1.3" stroke-linejoin="round" fill="#CBECF0"/>
+           "
+        stroke="black" stroke-width="1.3" stroke-linejoin="round" fill="#CBECF0"/>
   <!-- Top-Left Panel Flipped Corner Shadow -->
   <path d="M 2 11
            L 8.5 7.5
@@ -26,35 +28,40 @@
            L 7 6
            L 6 2
            Z
-           " stroke="black" stroke-width="1.3" stroke-linejoin="round" fill="white"/>
+           "
+        stroke="black" stroke-width="1.3" stroke-linejoin="round" fill="white"/>
   <!-- Top-Right Panel -->
   <path d="M 17.5 2
            H 30
            V 24
            L 17.5 20.875
            Z
-           " stroke="black" stroke-width="1.3" stroke-linejoin="round" fill="#F3F673"/>
+           "
+        stroke="black" stroke-width="1.3" stroke-linejoin="round" fill="#F3F673"/>
   <!-- Bottom-Left Panel -->
   <path d="M 2 20
            L 14.5 23.125
            V 46
            H 2
            Z
-           " stroke="black" stroke-width="1.3" stroke-linejoin="round" fill="#A2F980"/>
+           "
+        stroke="black" stroke-width="1.3" stroke-linejoin="round" fill="#A2F980"/>
   <!-- Bottom-Right Panel -->
   <path d="M 17.5 23.875
            L 30 27
            V 46
            H 17.5
            Z
-           " stroke="black" stroke-width="1.3" stroke-linejoin="round" fill="#F37681"/>
+           "
+        stroke="black" stroke-width="1.3" stroke-linejoin="round" fill="#F37681"/>
   <!-- Arrow -->
-  <path d="M 26 4
-           L 45 19
-           L 26 35
+  <path d="M 22 5
+           L 45 18
+           L 22 36
            V 28
-           A 7 7 0 0 0 26 42
-           A 15.5 15.5 0 0 1 26 11
+           A 7 7 0 0 0 22 42
+           A 16 14.5 0 0 1 22 13
            Z
-           " stroke="black" stroke-width="0.8" stroke-linejoin="round" fill="#0B25E3"/>
+           "
+        stroke="black" stroke-width="0.8" stroke-linejoin="round" fill="#0B25E3"/>
 </svg>
