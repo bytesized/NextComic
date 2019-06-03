@@ -9,7 +9,13 @@
   "description": "Allows arrow key control for webcomic viewing",
 
   "icons": {
-    "48": "icon.svg",
-    "96": "icon.svg"
+    "48": "icon/standard.svg",
+    "96": "icon/standard.svg"
+  },
+
+  "browser_action": {
+    "default_icon": "icon/small.svg",
+    "default_title": "NextComic",
+    "default_popup": "browser_action/popup.html"
   }
 }

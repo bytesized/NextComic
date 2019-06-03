@@ -1,0 +1,78 @@
+<!--
+   - This is the same as the main icon SVG, but with lower fill-opacity and stroke-width on for the
+   - panels, and higher stroke width for the arrow.
+   - At lower sizes, the image looks like a bit of a mess of colors and indistinct blobs. These
+   - changes make the arrow more distinct and makes the comic book panels more of a light
+   - background.
+   -->
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <!-- Background -->
+  <path d="M 0 0
+           H 48
+           V 48
+           H 0
+           Z
+           "
+        fill="none"/>
+  <!-- Top-Left Panel -->
+  <path d="M 2 10
+           L 6 2
+           H 14.5
+           V 20.125
+           L 2 17
+           Z
+           "
+        stroke="black" stroke-width="1" stroke-linejoin="round" fill="#CBECF0"
+        fill-opacity="0.75"/>
+  <!-- Top-Left Panel Flipped Corner Shadow -->
+  <path d="M 2 11
+           L 8.5 7.5
+           A 2 2 0 0 0 9 6
+           L 7 2
+           Z
+           " fill="black" fill-opacity="0.2"/>
+  <!-- Top-Left Panel Flipped Corner -->
+  <path d="M 2 10
+           L 7 6
+           L 6 2
+           Z
+           "
+        stroke="black" stroke-width="1" stroke-linejoin="round" fill="white"/>
+  <!-- Top-Right Panel -->
+  <path d="M 17.5 2
+           H 30
+           V 24
+           L 17.5 20.875
+           Z
+           "
+        stroke="black" stroke-width="1" stroke-linejoin="round" fill="#F3F673"
+        fill-opacity="0.75"/>
+  <!-- Bottom-Left Panel -->
+  <path d="M 2 20
+           L 14.5 23.125
+           V 46
+           H 2
+           Z
+           "
+        stroke="black" stroke-width="1" stroke-linejoin="round" fill="#A2F980"
+        fill-opacity="0.75"/>
+  <!-- Bottom-Right Panel -->
+  <path d="M 17.5 23.875
+           L 30 27
+           V 46
+           H 17.5
+           Z
+           "
+        stroke="black" stroke-width="1" stroke-linejoin="round" fill="#F37681"
+        fill-opacity="0.75"/>
+  <!-- Arrow -->
+  <path d="M 22 5
+           L 45 18
+           L 22 36
+           V 28
+           A 7 7 0 0 0 22 42
+           A 16 14.5 0 0 1 22 13
+           Z
+           "
+        stroke="black" stroke-width="1.3" stroke-linejoin="round" fill="#0B25E3"/>
+</svg>

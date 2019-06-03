@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+   - This is the NextComic browser action popup. It is structured into panels. A panel is a
+   - `body > div` that describes an entire popup view. That is to say, only one panel is shown at a
+   - time. Panels will be animated into view with a short sliding transition from the right or
+   - left, which are intended to give an indication of moving into and out of menus, help pages,
+   - etc. Elements in the panels are automatically connected to events when in view, and
+   - disconnected from events when out of view and while moving into view. Which elements are
+   - connected to what events is controlled by the entries in the PANEL variable in popup.js
+   -
+   - The panel initially given the "active" class will be the panel initially shown. *Exactly one*
+   - panel should be given the "active" class.
+   -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css"/>
+</head>
+<body>
+  <div id="main_panel" class="active">
+    <h1>Panel 1</h1>
+    <button id="main_button">Next</button>
+  </div>
+  <div id="p2">
+    <h1>Panel 2</h1>
+    <button id="p2_button">Prev</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

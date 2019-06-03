@@ -1,0 +1,26 @@
+html, body, body > div {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+}
+
+body > div {
+  position: absolute;
+  background: white;
+}
+
+body > div:not(.active) {
+  display: none;
+}
+
+body > div.active {
+  z-index: 1;
+}
+
+body > div.new_active {
+  z-index: 2;
+}
