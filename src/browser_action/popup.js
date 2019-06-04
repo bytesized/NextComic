@@ -12,26 +12,14 @@ const SLIDE_FROM_RIGHT                                        = "from_right";
 //                 "EventTarget.addEventListener()",
 //          fn: "The function to execute"
 //        }
-//     ]
+//     ],
+//     constructor: "Function needed to initialize the panel",
+//     destructor: "Function to clean up the panel"
 //   }
 const PANEL = {
   main_panel: {
     event_listeners: [
-      {
-        target_id: "main_button",
-        event: "click",
-        fn: event => change_active_panel("p2", SLIDE_FROM_RIGHT)
-      }
     ],
-  },
-  p2: {
-    event_listeners: [
-      {
-        target_id: "p2_button",
-        event: "click",
-        fn: event => change_active_panel("main_panel", SLIDE_FROM_LEFT)
-      }
-    ]
   }
 }
 
@@ -50,6 +38,9 @@ const SLIDE_FROM_RIGHT_KEYFRAMES = [
 ];
 const SLIDE_DURATION_MS = 180;
 
+/*************************************************************************************************
+ * Panels                                                                                        *
+ *************************************************************************************************/
 function get_active_panel() {
   return document.querySelector("body > div.active");
 }
@@ -88,6 +79,20 @@ function popup_init() {
   }
 }
 
+function construct_panel(panel_id) {
+  let constructor = PANEL[panel_id].constructor;
+  if (constructor) {
+    constructor();
+  }
+}
+
+function destruct_panel(panel_id) {
+  let destructor = PANEL[panel_id].destructor;
+  if (destructor) {
+    destructor();
+  }
+}
+
 // Switches the panel view from the current active panel to the one specified by `panel_id`.
 // `direction` determines whether the transition animation slides the new panel in from the left
 // or right. It should be either `SLIDE_FROM_LEFT` or `SLIDE_FROM_RIGHT`.
@@ -99,6 +104,7 @@ function change_active_panel(panel_id, direction) {
   }
 
   remove_event_listeners(old_panel.id);
+  construct_panel(new_panel.id);
 
   new_panel.classList.add(NEW_ACTIVE_PANEL_CLASS);
   new_panel.classList.add(ACTIVE_PANEL_CLASS);
@@ -110,7 +116,11 @@ function change_active_panel(panel_id, direction) {
     add_event_listeners(new_panel.id);
     old_panel.classList.remove(ACTIVE_PANEL_CLASS);
     new_panel.classList.remove(NEW_ACTIVE_PANEL_CLASS);
+    destruct_panel(old_panel.id);
   };
 }
 
+/*************************************************************************************************
+ * Init                                                                                          *
+ *************************************************************************************************/
 popup_init();
