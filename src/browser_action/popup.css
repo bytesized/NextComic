@@ -1,6 +1,19 @@
-html, body, body > div {
-  width: 200px;
-  height: 200px;
+/*
+ * Panels
+ *
+ * Only a single panel in view at a time (except during a transition). A panel takes up the entire
+ * popup.
+ *
+ * Classes:
+ *  active             Indicates the visible panel.
+ *  new_active         Indicates the panel that is being animated into view. Should be used in
+ *                     conjunction with the "active" class.
+ */
+html,
+body,
+body > div {
+  width: 30rem;
+  height: 30rem;
   overflow: hidden;
 }
 
@@ -23,4 +36,116 @@ body > div.active {
 
 body > div.new_active {
   z-index: 2;
+}
+
+/*
+ * Settings
+ * Class: setting
+ *
+ * 3 setting elements might look like this:
+ *  _______________________________________
+ *  | Setting 1                     [  =] |
+ *  | Setting 2              [text input] |
+ *  | Setting 3                     [999] |
+ *  ---------------------------------------
+ *
+ * Should contain two elements. The first element should be a label for the setting.
+ * The second element should be a control for the setting (toggle, input, etc).
+ *
+ * Child classes:
+ *  title              Larger font for a label or part of a label
+ */
+div.setting {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.setting label {
+  line-height: 1.3em;
+}
+
+div.setting .title {
+  font-size: 180%;
+}
+
+/*
+ * Toggles (checkboxes)
+ * Class: toggle
+ *
+ * Checkboxes styled as sliders.
+ *
+ * Modifier Classes:
+ *  boolean            Indicates that the toggle represents an on/off decision. Changes the
+ *                     blue,off/blue,on coloring to gray,off/blue,on.
+ *  large              A larger toggle.
+ */
+input[type="checkbox"].toggle {
+  position: relative;
+  display: inline-block;
+  width: 3rem;
+  min-width: 3rem;
+  height: 1.5rem;
+  min-height: 1.5rem;
+  border-radius: 1.5rem;
+  appearance: none;
+  -moz-appearance: none;
+  transition: background-color ease 0.3s;
+  cursor: pointer;
+}
+
+input[type="checkbox"].toggle.boolean,
+input[type="checkbox"].toggle {
+  background-color: #C4C4C4;
+}
+
+input[type="checkbox"].toggle.boolean:checked,
+input[type="checkbox"].toggle:not(.boolean){
+  background-color: #0B25E3;
+}
+
+input[type="checkbox"].toggle::before {
+  content: "";
+  position: absolute;
+  width: 1.25rem;
+  top: 0.125rem;
+  left: 0.125rem;
+  bottom: 0.125rem;
+  border-radius: 50%;
+  background-color: white;
+  transition: all cubic-bezier(0.3, 1.4, 0.7, 1) 0.3s;
+}
+
+input[type="checkbox"].toggle:checked::before {
+  left: 1.625rem;
+}
+
+input[type="checkbox"].toggle.large {
+  width: 6rem;
+  min-width: 6rem;
+  height: 2rem;
+  min-height: 2rem;
+  border-radius: 2rem;
+}
+
+input[type="checkbox"].toggle.large::before {
+  width: 2.75rem;
+  top: 0.25rem;
+  left: 0.25rem;
+  bottom: 0.25rem;
+  border-radius: 1.5em;
+}
+
+input[type="checkbox"].toggle.large:checked::before {
+  left: 3rem;
+}
+
+input[type="checkbox"].toggle:disabled {
+  background-color: #C4C4C4;
+  cursor: auto;
+}
+
+input[type="checkbox"].toggle:disabled::before {
+  background-color: #D9D9D9;
 }
