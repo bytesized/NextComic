@@ -134,7 +134,7 @@ input[type="checkbox"].toggle.large::before {
   top: 0.25rem;
   left: 0.25rem;
   bottom: 0.25rem;
-  border-radius: 1.5em;
+  border-radius: 1.5rem;
 }
 
 input[type="checkbox"].toggle.large:checked::before {
