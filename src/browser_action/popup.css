@@ -101,7 +101,7 @@ input[type="checkbox"].toggle {
 }
 
 input[type="checkbox"].toggle.boolean:checked,
-input[type="checkbox"].toggle:not(.boolean){
+input[type="checkbox"].toggle:not(.boolean) {
   background-color: #0B25E3;
 }
 
