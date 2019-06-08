@@ -63,11 +63,11 @@ div.setting {
 }
 
 div.setting label {
-  line-height: 1.3em;
+  line-height: 1.3rem;
 }
 
 div.setting .title {
-  font-size: 180%;
+  font-size: 1.8rem;
 }
 
 /*
