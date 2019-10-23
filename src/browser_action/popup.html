@@ -4,12 +4,7 @@
    - `body > div` that describes an entire popup view. That is to say, only one panel is shown at a
    - time. Panels will be animated into view with a short sliding transition from the right or
    - left, which are intended to give an indication of moving into and out of menus, help pages,
-   - etc. Elements in the panels are automatically connected to events when in view, and
-   - disconnected from events when out of view and while moving into view. Which elements are
-   - connected to what events is controlled by the entries in the PANEL variable in popup.js
-   -
-   - The panel initially given the "active" class will be the panel initially shown. *Exactly one*
-   - panel should be given the "active" class.
+   - etc.
    -->
 <html>
 <head>
@@ -17,14 +12,18 @@
   <link rel="stylesheet" href="popup.css"/>
 </head>
 <body>
-  <div id="main_panel" class="active">
+  <div id="main_panel">
     <div class="setting">
       <label for="default_open_method_toggle" class="title">Setting</label>
       <input class="toggle large" id="default_open_method_toggle" type="checkbox"
              disabled="disabled"/>
+    <script type="module" src="main_panel.js"></script>
     </div>
-    <button class="wide">Do stuff</button>
+    <button id="forward" class="wide">Forward</button>
   </div> <!-- End main_panel -->
-  <script src="popup.js"></script>
+  <div id="second_panel">
+    <button id="back">Back</button>
+    <script type="module" src="second_panel.js"></script>
+  </div>
 </body>
 </html>
