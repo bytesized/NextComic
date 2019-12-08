@@ -47,7 +47,7 @@ const SLIDE_FROM_RIGHT                                        = 1;
 //     constructor: "Function needed to initialize the panel",
 //     destructor: "Function to clean up the panel"
 //   }
-let PANEL = {};
+const PANEL = {};
 
 // Class names used to apply CSS styles
 const ACTIVE_PANEL_CLASS                                      = "active";
@@ -55,12 +55,12 @@ const NEW_ACTIVE_PANEL_CLASS                                  = "new_active";
 
 // Panel slide animation definitions
 const SLIDE_FROM_LEFT_KEYFRAMES = [
-  { transform: "translateX(-100%)" },
-  { transform: "translateX(0)" }
+  {transform: "translateX(-100%)"},
+  {transform: "translateX(0)"},
 ];
 const SLIDE_FROM_RIGHT_KEYFRAMES = [
-  { transform: "translateX(100%)" },
-  { transform: "translateX(0)" }
+  {transform: "translateX(100%)"},
+  {transform: "translateX(0)"},
 ];
 const SLIDE_DURATION_MS                                       = 180;
 
@@ -68,21 +68,21 @@ const SLIDE_DURATION_MS                                       = 180;
  * Helper functions
  *************************************************************************************************/
 function get_active_panel() {
-  return document.querySelector("body > div." + ACTIVE_PANEL_CLASS);
+  return document.querySelector(`body > div.${ACTIVE_PANEL_CLASS}`);
 }
 
 function panel_is_active(panel_id) {
-  let active_panel = get_active_panel(panel_id);
+  const active_panel = get_active_panel(panel_id);
   if (!active_panel) {
     return false;
   }
-  return active_panel.id == panel_id;
+  return active_panel.id === panel_id;
 }
 
 // Adds the panel's event listeners, as described in `PANEL`.
 function add_event_listeners(panel_id) {
-  for (let event_listener of PANEL[panel_id].event_listeners) {
-    let el = document.getElementById(event_listener.target_id);
+  for (const event_listener of PANEL[panel_id].event_listeners) {
+    const el = document.getElementById(event_listener.target_id);
     if (el) {
       el.addEventListener(event_listener.event, event_listener.fn);
     }
@@ -91,8 +91,8 @@ function add_event_listeners(panel_id) {
 
 // Removes the panel's event listeners that were set with `add_event_listeners`.
 function remove_event_listeners(panel_id) {
-  for (let event_listener of PANEL[panel_id].event_listeners) {
-    let el = document.getElementById(event_listener.target_id);
+  for (const event_listener of PANEL[panel_id].event_listeners) {
+    const el = document.getElementById(event_listener.target_id);
     if (el) {
       el.removeEventListener(event_listener.event, event_listener.fn);
     }
@@ -100,14 +100,14 @@ function remove_event_listeners(panel_id) {
 }
 
 function construct_panel(panel_id) {
-  let constructor = PANEL[panel_id].constructor;
+  const constructor = PANEL[panel_id].constructor;
   if (constructor) {
     constructor();
   }
 }
 
 function destruct_panel(panel_id) {
-  let destructor = PANEL[panel_id].destructor;
+  const destructor = PANEL[panel_id].destructor;
   if (destructor) {
     destructor();
   }
@@ -141,7 +141,7 @@ function add_panel(panel_id, options = null) {
       options.constructor();
     }
 
-    let panel = document.getElementById(panel_id);
+    const panel = document.getElementById(panel_id);
     panel.classList.add(ACTIVE_PANEL_CLASS);
 
     // Normally we would connect event listeners at this point, but we just set it to be an empty
@@ -157,7 +157,7 @@ function add_panel_event(panel_id, target_id, event, fn) {
   });
 
   if (panel_is_active(panel_id)) {
-    let el = document.getElementById(target_id);
+    const el = document.getElementById(target_id);
     if (el) {
       el.addEventListener(event, fn);
     }
@@ -165,16 +165,16 @@ function add_panel_event(panel_id, target_id, event, fn) {
 }
 
 function remove_panel_event(panel_id, target_id, event, fn) {
-  let event_listener_index = PANEL[panel_id].event_listeners.findIndex((listener) => {
-    return listener.target_id == target_id && listener.event == event && listener.fn === fn;
-  });
-  if (event_listener_index == -1) {
+  const event_listener_index = PANEL[panel_id].event_listeners.findIndex(listener =>
+    listener.target_id === target_id && listener.event === event && listener.fn === fn
+  );
+  if (event_listener_index === -1) {
     return;
   }
   PANEL[panel_id].event_listeners.splice(event_listener_index, 1);
 
   if (panel_is_active(panel_id)) {
-    let el = document.getElementById(target_id);
+    const el = document.getElementById(target_id);
     if (el) {
       el.removeEventListener(event, fn);
     }
@@ -185,8 +185,8 @@ function remove_panel_event(panel_id, target_id, event, fn) {
 // `direction` determines whether the transition animation slides the new panel in from the left
 // or right. It should be either `SLIDE_FROM_LEFT` or `SLIDE_FROM_RIGHT`.
 function change_active_panel(panel_id, direction) {
-  let new_panel = document.getElementById(panel_id);
-  let old_panel = get_active_panel();
+  const new_panel = document.getElementById(panel_id);
+  const old_panel = get_active_panel();
   if (old_panel === new_panel) {
     return;
   }
@@ -197,9 +197,9 @@ function change_active_panel(panel_id, direction) {
   new_panel.classList.add(NEW_ACTIVE_PANEL_CLASS);
   new_panel.classList.add(ACTIVE_PANEL_CLASS);
 
-  let keyframes = direction == SLIDE_FROM_LEFT ? SLIDE_FROM_LEFT_KEYFRAMES
-                                               : SLIDE_FROM_RIGHT_KEYFRAMES;
-  let animation = new_panel.animate(keyframes, {duration: SLIDE_DURATION_MS});
+  const keyframes = direction === SLIDE_FROM_LEFT ? SLIDE_FROM_LEFT_KEYFRAMES
+                                                  : SLIDE_FROM_RIGHT_KEYFRAMES;
+  const animation = new_panel.animate(keyframes, {duration: SLIDE_DURATION_MS});
   animation.onfinish = () => {
     add_event_listeners(new_panel.id);
     old_panel.classList.remove(ACTIVE_PANEL_CLASS);
@@ -217,5 +217,5 @@ export {
   change_active_panel,
   remove_panel_event,
   SLIDE_FROM_LEFT,
-  SLIDE_FROM_RIGHT
+  SLIDE_FROM_RIGHT,
 };
