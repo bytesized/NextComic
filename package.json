@@ -1,0 +1,30 @@
+{
+  "name": "nextcomic",
+  "version": "0.0.1",
+  "description": "A webextension designed for Firefox to allow webcomic navigation with the arrow keys",
+  "main": "index.js",
+  "scripts": {
+    "bundle": "web-ext -s src -a dist build --overwrite-dest",
+    "lint": "npm-run-all lint:*",
+    "lint:eslint": "eslint --ext=.js,.json .",
+    "lint:webext": "web-ext -s src lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bytesized/NextComic.git"
+  },
+  "author": "bytesized",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/bytesized/NextComic/issues"
+  },
+  "homepage": "https://github.com/bytesized/NextComic#readme",
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-plugin-json": "^2.0.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "npm-run-all": "^4.1.5",
+    "web-ext": "^3.2.1"
+  },
+  "dependencies": {}
+}
